@@ -1,7 +1,7 @@
 "use server";
 import { JSON_HEADER } from "@/lib/constants/api.constant";
 import { forgetFieldes } from "@/lib/schemes/auth.schema";
-import { ForgetResponse } from "@/lib/types/auth";
+
 
 export async function forgetPassword(values: forgetFieldes) {
   const respons = await fetch(`${process.env.API}/auth/forgotPassword`, {
