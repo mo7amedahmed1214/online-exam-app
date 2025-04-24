@@ -12,15 +12,11 @@ import { Button } from "@/components/ui/button";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { resetPasswordFieldes, resetPasswordSchema } from "@/lib/schemes/auth.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { VscEye, VscEyeClosed } from "react-icons/vsc";
 import useResetPassword from "../_hooks/use-reset-password";
 
 export default function FormResetPassword() {
-  // Navigation
-  const router = useRouter();
-
   // mutation
   const { isPending, error, resetPass } = useResetPassword();
   const [showPass, setShowPass] = useState<boolean>(false);

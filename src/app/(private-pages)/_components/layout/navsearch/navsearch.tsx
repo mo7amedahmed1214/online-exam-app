@@ -2,7 +2,6 @@
 import AddDeploma from "@/components/feature/add-diploma";
 import AddQuize from "@/components/feature/add-quize";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { userContext } from "@/context/user.context";
 import { Routes } from "@/lib/constants/emuns.constant";

@@ -47,7 +47,7 @@ export function QuizeAnswer({ data, quistions }: QuizeAnswerProps) {
           // alert => if user cannot answer any quition
           <div className="w-full h-full flex items-center justify-center bg-slate-100">
             <p>
-              {" "}
+          
               OOps! the time ran out before you could answer any questions. You can try again and
               aim for a better result!"
             </p>

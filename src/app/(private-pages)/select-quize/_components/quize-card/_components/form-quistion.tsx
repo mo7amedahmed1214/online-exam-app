@@ -1,5 +1,5 @@
 "use client";
-import React, {  useState } from "react";
+import React, { useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -29,10 +29,10 @@ export default function FormQuistion({ quistions }: FormQuistionProps) {
   const [answer, setAnswer] = useState("");
 
   // mutation
-  const { isPending, error, submitQuize, data } = useQuistion();
+  const { isPending, submitQuize, data } = useQuistion();
 
   // variable
-  let currentQuistion = quistions[step];
+  const currentQuistion = quistions[step];
 
   // form
   const form = useForm<AnswerFields>({
@@ -135,7 +135,11 @@ export default function FormQuistion({ quistions }: FormQuistionProps) {
                 const prevAnswer = form.getValues(`answers.${step - 1}`);
 
                 // check if prevQuestion is answer or not
-                prevAnswer?.correct ? setAnswer(prevAnswer.correct) : setAnswer("");
+                if (prevAnswer?.correct) {
+                  setAnswer(prevAnswer.correct);
+                } else {
+                  setAnswer("");
+                }
 
                 setStep((prev) => prev - 1);
               }}
@@ -155,7 +159,11 @@ export default function FormQuistion({ quistions }: FormQuistionProps) {
                 const nextAnswer = form.getValues(`answers.${step + 1}`);
 
                 //check if next Quistion is answer or not
-                !nextAnswer?.correct ? setAnswer("") : setAnswer(nextAnswer.correct);
+                if (!nextAnswer?.correct) {
+                  setAnswer("");
+                } else {
+                  setAnswer(nextAnswer.correct);
+                }
 
                 setStep((prev) => prev + 1);
               }}

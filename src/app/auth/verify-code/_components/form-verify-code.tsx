@@ -13,13 +13,9 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import Link from "next/link";
 import { verifyFieldes, verifySchema } from "@/lib/schemes/auth.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useRouter } from "next/navigation";
 import useVrifyCode from "../_hooks/use-vrify-code";
 
 export default function FormVerifyCode() {
-  // Navigation
-  const router = useRouter();
-
   // mutation
   const { isPending, verify, error } = useVrifyCode();
 
@@ -41,17 +37,11 @@ export default function FormVerifyCode() {
   return (
     <div className="max-w-100 space-y-8 mt-24">
       {/* title */}
-      <h3 className="text-black text-2xl font-bold font-poppins">
-        Verify code
-      </h3>
+      <h3 className="text-black text-2xl font-bold font-poppins">Verify code</h3>
 
       {/* form */}
       <Form {...form}>
-        <form
-          action=""
-          onSubmit={form.handleSubmit(onSubmit)}
-          className="space-y-8"
-        >
+        <form action="" onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           <FormField
             name="resetCode"
             control={form.control}
@@ -93,10 +83,7 @@ export default function FormVerifyCode() {
 
           {/* submit */}
           <Button
-            disabled={
-              isPending ||
-              (form.formState.isSubmitted && !form.formState.isValid)
-            }
+            disabled={isPending || (form.formState.isSubmitted && !form.formState.isValid)}
             type="submit"
             variant={"authBtn"}
             size={"autBtn"}

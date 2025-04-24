@@ -1,5 +1,5 @@
 import { useMutation } from "@tanstack/react-query";
-import React from "react";
+
 import { finshExam } from "../_actions/quize.action";
 import { AnswerFields } from "@/lib/schemes/quize.schema";
 

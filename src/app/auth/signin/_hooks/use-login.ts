@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 
 export default function useLogin() {
   // mutation
-  const { isPending, error, data, mutate } = useMutation({
+  const { isPending, error,  mutate } = useMutation({
     // login fun
     mutationFn: async (loginFieldes: loginFieldes) => {
       const toastId = toast.loading("loading");

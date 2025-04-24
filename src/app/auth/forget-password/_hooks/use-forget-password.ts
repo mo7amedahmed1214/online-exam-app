@@ -31,7 +31,7 @@ export default function UseForgetPassword() {
     },
 
     // handle error
-    onError(error) {
+    onError() {
       toast.error("Email not found");
     },
   });

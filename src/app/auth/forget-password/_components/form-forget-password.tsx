@@ -12,14 +12,12 @@ import { Button } from "@/components/ui/button";
 import { SubmitHandler, useForm } from "react-hook-form";
 import Link from "next/link";
 import { forgetFieldes, forgetSchema } from "@/lib/schemes/auth.schema";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useRouter } from "next/navigation";
+import { zodResolver } from "@hookform/resolvers/zod";;
 import { Pages, Routes } from "@/lib/constants/emuns.constant";
 import UseForgetPassword from "../_hooks/use-forget-password";
 
 export default function FormForgetPassword() {
-  // Navigation
-  const router = useRouter();
+  
 
   // mutation
   const { isPending, forgetPass, error } = UseForgetPassword();

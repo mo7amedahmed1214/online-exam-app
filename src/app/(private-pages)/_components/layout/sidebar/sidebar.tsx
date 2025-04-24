@@ -17,7 +17,7 @@ export function AppSidebar() {
   const pathName = usePathname();
 
   // seations
-  const { data, status } = useSession();
+  const { data} = useSession();
 
   return (
     <Sidebar className=" h-fit lg:w-fit   ms-8 border-none">

@@ -17,6 +17,7 @@ export default function useRegister() {
       const toastId = toast.loading("loading");
       try {
         const response = await signUp(registerFields);
+        console.log(response);
       } finally {
         toast.dismiss(toastId);
       }

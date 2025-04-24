@@ -13,17 +13,13 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import Link from "next/link";
 import { registerFields, registerSchema } from "@/lib/schemes/auth.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useRouter } from "next/navigation";
 import { Pages, Routes } from "@/lib/constants/emuns.constant";
 import { useState } from "react";
 import { VscEye, VscEyeClosed } from "react-icons/vsc";
 import useRegister from "../_hooks/use-register";
 
 export default function FormRegister() {
-  // Navigation
-  const router = useRouter();
-
-  // mutation
+    // mutation
   const { error, isPending, register } = useRegister();
 
   // state
