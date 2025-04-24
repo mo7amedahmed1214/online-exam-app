@@ -2,7 +2,7 @@
 
 import { JSON_HEADER } from "@/lib/constants/api.constant";
 import { resetPasswordFieldes } from "@/lib/schemes/auth.schema";
-import { ResetResponse } from "@/lib/types/auth";
+
 
 export async function resetPassword(values: resetPasswordFieldes) {
   const response = await fetch(`${process.env.API}/auth/resetPassword`, {

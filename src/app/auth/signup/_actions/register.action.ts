@@ -2,7 +2,7 @@
 
 import { JSON_HEADER } from "@/lib/constants/api.constant"
 import { registerFields } from "@/lib/schemes/auth.schema"
-import { LoginResponse } from "@/lib/types/auth"
+
 
 export async function signUp(values: registerFields) {
     const respons = await fetch(`${process.env.API}/auth/signup`, {
