@@ -19,17 +19,18 @@ const authPages = new Set([
 
 export default async function middleware(req: NextRequest) {
   const token = await getToken({ req });
+  console.log(token?.token);
 
   if (potectedPages.has(req.nextUrl.pathname)) {
-    if (token?.token) return NextResponse.next();
+    if (token) return NextResponse.next();
 
     const redirect = new URL(`${Routes.AUTH}/${Pages.LOGIN}`, req.nextUrl.origin);
     return NextResponse.redirect(redirect);
   }
 
   if (authPages.has(req.nextUrl.pathname)) {
-    if (token?.token) {
-      const redirect = new URL('/', req.nextUrl.origin);
+    if (token) {
+      const redirect = new URL("/", req.nextUrl.origin);
       return NextResponse.redirect(redirect);
     } else {
       return NextResponse.next();

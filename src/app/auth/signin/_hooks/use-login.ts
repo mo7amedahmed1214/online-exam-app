@@ -27,7 +27,7 @@ export default function useLogin() {
     onSuccess(data) {
       toast.success("login successfully");
       setTimeout(() => {
-        window.location.href = data?.url || "/";
+        window.location.href = "/";
       }, 1000);
       console.log(data?.url);
       
