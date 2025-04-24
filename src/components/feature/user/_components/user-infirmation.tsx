@@ -1,23 +1,15 @@
-"use client";
+
 import { Progress } from "@/components/ui/progress";
 import { MdFlag } from "react-icons/md";
 import { FaClock } from "react-icons/fa6";
 import { FaCircleCheck } from "react-icons/fa6";
-import { UserApp } from "@/lib/types/auth";
-import { useContext } from "react";
-import { userContext } from "@/context/user.context";
+
 
 // type
 type UserInformationProps = { userInfo: UserApp };
 
 export default function UserInformation({ userInfo }: UserInformationProps) {
-// context
-const context = useContext(userContext);
-  if (!context) {
-    throw new Error("");
-  }
-  const{score}=context
-  console.log(score);
+
   
 
   return (
