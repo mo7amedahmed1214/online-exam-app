@@ -1,0 +1,72 @@
+import * as React from "react";
+import { Slot } from "@radix-ui/react-slot";
+import { cva, type VariantProps } from "class-variance-authority";
+
+import { cn } from "@/lib/utils";
+
+const buttonVariants = cva(
+  "inline-flex items-center  justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  {
+    variants: {
+      variant: {
+        default: "bg-main text-white hover:bg-main/90",
+        destructive:
+          "bg-destructive text-destructive-foreground hover:bg-destructive/90",
+        outline:
+          "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
+        secondary:
+          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+        ghost: "hover:bg-accent hover:text-accent-foreground",
+        link: "text-main underline-offset-4 hover:underline",
+        authBtn:
+          "shadow-btnShadow w-full  text-lg relative -top-2 font-poppins bg-main text-white hover:bg-main/90",
+        searchBtn:
+          "font-poppins bg-white text-main lg:bg-main lg:text-white font-semibold text-xl lg:hover:bg-main/90 ",
+        startBtn: "bg-main  text-12 text-white hover:bg-main/90 ",
+        backtBtn:
+          "bg-white text-2xl  w-full border  text-main border-main font-medium  disabled:text-textSub disabled:bg-[#1D1B201F] transition-all duration-300 hover:bg-slate-100 ",
+        nexttBtn:
+          " text-2xl  w-full border    font-medium   disabled:text-textSub text-white bg-main disabled:bg-[#1D1B201F] transition-all duration-300 hover:bg-blue-500",
+        answerBtn: "bg-main text-white   !text-12 hover:bg-main/90",
+      },
+
+      size: {
+        default: "h-10 px-4 py-2",
+        sm: "h-9 rounded-md px-3",
+        lg: "h-11 rounded-md px-8",
+        icon: "h-10 w-10",
+        autBtn: "p-4 !rounded-20",
+        searchBtn: "h-full !rounded-20 w-60",
+        startBtn: "py-2 sm:py-1 px-6 !rounded-10",
+        backBtn: "py-3 px-6 !rounded-100",
+        answeBtn: "px-2 py-1 !rounded-10",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+      size: "default",
+    },
+  }
+);
+
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+    VariantProps<typeof buttonVariants> {
+  asChild?: boolean;
+}
+
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ className, variant, size, asChild = false, ...props }, ref) => {
+    const Comp = asChild ? Slot : "button";
+    return (
+      <Comp
+        className={cn(buttonVariants({ variant, size, className }))}
+        ref={ref}
+        {...props}
+      />
+    );
+  }
+);
+Button.displayName = "Button";
+
+export { Button, buttonVariants };
