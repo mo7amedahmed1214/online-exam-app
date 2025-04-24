@@ -40,7 +40,7 @@ export default function QuizesOfSubject({ quize, params }: QuizesOfSubjectProps)
       ) : (
         // if found exams => show them
         quize.map((quize) => (
-          <Suspense fallback={<QuizeSkeleton />}>
+          <Suspense fallback={<QuizeSkeleton />} key={quize._id}>
             <QuizeItem key={quize._id} quizeInfo={quize} params={params}/>
           </Suspense>
         ))

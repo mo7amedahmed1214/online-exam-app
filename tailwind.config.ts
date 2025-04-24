@@ -48,15 +48,12 @@ const config: Config = {
     			dilogShadow: '0px 1px 10px 0px rgba(0, 0, 0, 0.25)'
     		},
     		fontFamily: {
-    			inter: [
-    				'Inter',
-    				'sans-serif'
-    			],
-    			poppins: [
-    				'Poppins',
-    				'sans-serif'
-    			],
-    			roboto: 'var(--font-roboto)'
+				sans: ["var(--font-inter)", "sans-serif"],
+				roboto: ["var(--font-roboto)", "sans-serif"],
+				poppins: ["var(--font-poppins)", "sans-serif"],
+
+
+    			
     		},
     		colors: {
     			borderColor: '#E0E0E9',

@@ -1,4 +1,4 @@
-import { User } from "next-auth"
+
 declare type UserApp = {
     _id: string,
     username: string,

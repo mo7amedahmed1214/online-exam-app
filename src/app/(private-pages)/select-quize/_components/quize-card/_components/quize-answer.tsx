@@ -49,7 +49,7 @@ export function QuizeAnswer({ data, quistions }: QuizeAnswerProps) {
             <p>
           
               OOps! the time ran out before you could answer any questions. You can try again and
-              aim for a better result!"
+              aim for a better result!
             </p>
           </div>
         ) : (

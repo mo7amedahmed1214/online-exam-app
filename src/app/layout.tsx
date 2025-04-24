@@ -4,6 +4,7 @@ import { Inter, Poppins, Roboto } from "next/font/google";
 import { Toaster } from "react-hot-toast";
 import Providers from "@/components/providers";
 
+
 const roboto = Roboto({
   subsets: ["latin"],
   weight: ["100", "300", "400", "500", "700", "900"],
@@ -13,13 +14,13 @@ const roboto = Roboto({
 const inter = Inter({
   subsets: ["latin"],
   weight: ["100", "300", "400", "500", "700", "900"],
-  display: "swap",
+  variable: "--font-inter",
 });
 
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["100", "300", "400", "500", "700", "900"],
-  display: "swap",
+  variable: "--font-poppins",
 });
 
 export const metadata: Metadata = {
@@ -33,8 +34,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body  className={inter.className}>
+    <html lang="en" className={`${inter.variable} ${poppins.variable} ${roboto.variable}`}>
+      <body className="font-sans">
         <Toaster
           toastOptions={{
             style: {
@@ -44,7 +45,6 @@ export default function RootLayout({
             },
           }}
         />
-
         <Providers>{children}</Providers>
       </body>
     </html>
