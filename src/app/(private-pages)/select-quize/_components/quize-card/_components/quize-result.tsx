@@ -15,7 +15,7 @@ export default function QuizeResult({ data, quistions }: QuizeResultProps) {
       {/* content */}
       <div className="w-full flex items-center justify-center gap-20">
         {/*  score */}
-        <div className="border-black border-8 flex justify-center items-center py-12  px-11 rounded-[80px] ">
+        <div className="border-main border-8 flex justify-center items-center py-12  px-11 rounded-[80px] ">
           <p>{parseFloat(data?.total || "").toFixed(0)}%</p>
         </div>
 

@@ -29,6 +29,8 @@ export default function useLogin() {
       setTimeout(() => {
         window.location.href = data?.url || "/";
       }, 1000);
+      console.log(data?.url);
+      
     },
 
     onError(error) {

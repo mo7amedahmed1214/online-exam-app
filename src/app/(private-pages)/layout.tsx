@@ -9,6 +9,7 @@ export default function PrivateLayout({ children }: { children: ReactNode }) {
       {/* layout */}
       <section className="">
         {/* <Sidebar /> */}
+        
         <SidebarProvider>
           <CustomTrigger />
           <AppSidebar />

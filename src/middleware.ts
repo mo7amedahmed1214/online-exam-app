@@ -6,6 +6,7 @@ const potectedPages = new Set([
   `${Routes.QUIZ_HISTORY}`,
   `${Routes.ROOT}`,
   `${Routes.SELECT_QIUZ}`,
+  `${Routes.ADMIN}`,
 ]);
 
 const authPages = new Set([
@@ -20,25 +21,21 @@ export default async function middleware(req: NextRequest) {
   const token = await getToken({ req });
 
   if (potectedPages.has(req.nextUrl.pathname)) {
-    if (token) return NextResponse.next();
+    if (token?.token) return NextResponse.next();
 
-    const redirect = new URL(
-      `${Routes.AUTH}/${Pages.LOGIN}`,
-      req.nextUrl.origin
-    );
+    const redirect = new URL(`${Routes.AUTH}/${Pages.LOGIN}`, req.nextUrl.origin);
     return NextResponse.redirect(redirect);
   }
 
   if (authPages.has(req.nextUrl.pathname)) {
-    if (token) {
-      const redirect = new URL(Routes.ROOT, req.nextUrl.origin);
+    if (token?.token) {
+      const redirect = new URL('/', req.nextUrl.origin);
       return NextResponse.redirect(redirect);
     } else {
       return NextResponse.next();
     }
   }
 }
-
 
 export const config = {
   matcher: [
@@ -49,6 +46,6 @@ export const config = {
      * - _next/image (image optimization files)
      * - favicon.ico (favicon file)
      */
-    '/((?!api|_next/static|_next/image|favicon.ico).*)',
+    "/((?!api|_next/static|_next/image|favicon.ico).*)",
   ],
-}
+};
