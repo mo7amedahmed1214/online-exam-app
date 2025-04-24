@@ -1,7 +1,6 @@
 import { NextAuthOptions } from "next-auth"
 import Credentials from "next-auth/providers/credentials"
 import { JSON_HEADER } from "./lib/constants/api.constant";
-import { LoginResponse } from "./lib/types/auth";
 
 
 
