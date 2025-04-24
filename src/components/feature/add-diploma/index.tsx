@@ -34,7 +34,7 @@ export default function AddDeploma() {
 
           {/* discription */}
           <DialogDescription className="sr-only">
-            Make changes to your profile here. Click save when you're done.
+            Make changes to your profile here. Click save when youre done.
           </DialogDescription>
         </DialogHeader>
 

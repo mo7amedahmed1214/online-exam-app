@@ -1,5 +1,6 @@
 import Subjects from "@/components/feature/subjects";
 import User from "@/components/feature/user";
+import { Metadata } from "next";
 
 // type props
 type HomeProps = {
@@ -19,3 +20,9 @@ export default async function Home({ searchParams }: HomeProps) {
     </>
   );
 }
+
+// metaData
+export const metadata:Metadata = {
+  title: "Dashboard Page",
+  description: "this the first page of the application",
+};

@@ -12,7 +12,7 @@ type QuizesOfSubjectProps = {
   params: { subjectId: string };
 };
 
-export default function QuizesOfSubject({ quize, searchParams, params }: QuizesOfSubjectProps) {
+export default function QuizesOfSubject({ quize, params }: QuizesOfSubjectProps) {
   return (
     <div className="flex flex-col gap-6">
       {/* title */}

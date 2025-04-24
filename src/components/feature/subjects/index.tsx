@@ -17,7 +17,7 @@ export default function Subjects({ searchParams }: SubjectsProps) {
   const [limit, setLimit] = useState(detualtLimit);
 
   // mutaion
-  const { payload, error, isPending } = useSubjects(limit);
+  const { payload, } = useSubjects(limit);
 
   // functions
   const toggleLimit = () => {

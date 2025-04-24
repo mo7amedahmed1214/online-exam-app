@@ -33,7 +33,7 @@ export default function AddQuestionForm({ quizeId, params }: AddQuistionFormProp
   const { subjectId } = params;
 
   // mutiation
-  const { addQuetion, data, isPending, error } = useAddQuistion();
+  const { addQuetion, isPending, } = useAddQuistion();
 
   // form
   const form = useForm<addQuestionFields>({

@@ -18,10 +18,10 @@ export default function useAddQuistion() {
       return respons;
     },
 
-    onSuccess(data, variables, context) {
+    onSuccess() {
       toast.success("Question adding successfully");
     },
-    onError(error, variables, context) {
+    onError() {
       toast.error("Question already exsist");
     },
   });

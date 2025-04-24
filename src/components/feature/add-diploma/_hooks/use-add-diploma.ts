@@ -1,9 +1,8 @@
-import { addQuestionFields } from "@/lib/schemes/add-question.schema";
+
 import { useMutation } from "@tanstack/react-query";
 
 import toast from "react-hot-toast";
 import { addDiplomaAction } from "../_actions/add-diploma.action";
-import { addDiplomaFields } from "@/lib/schemes/add-diploma.schema";
 
 export default function useAddDiploma() {
   //   mutation
@@ -20,10 +19,10 @@ export default function useAddDiploma() {
       return respons;
     },
 
-    onSuccess(data, variables, context) {
+    onSuccess() {
       toast.success("Question adding successfully");
     },
-    onError(error, variables, context) {
+    onError(error) {
       toast.error(error.message);
     },
   });

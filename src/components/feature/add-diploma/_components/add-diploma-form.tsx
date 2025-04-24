@@ -2,7 +2,6 @@ import React, { useRef } from "react";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -15,7 +14,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { addDiplomaFields, addDiplomaSchema } from "@/lib/schemes/add-diploma.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import useAddDiploma from "../_hooks/use-add-diploma";
-import { object } from "zod";
+
 
 export default function AddDiplomaForm() {
   // hook
@@ -33,7 +32,7 @@ export default function AddDiplomaForm() {
   const { isPending, addDiploma } = useAddDiploma();
 
   //function
-  const onSubmit: SubmitHandler<addDiplomaFields> = async (data) => {
+  const onSubmit: SubmitHandler<addDiplomaFields> = async () => {
     // varible
     const formData = new FormData(formRef.current || undefined);
     console.log(Object.fromEntries(formData));
@@ -104,7 +103,9 @@ export default function AddDiplomaForm() {
           </DialogClose>
 
           {/* add btn */}
-          <Button type="submit" className="py-1 px-14 rounded-xl bg-main text-md font-bold">
+          <Button 
+          disabled={isPending || (form.formState.isSubmitted && !form.formState.isValid)}
+          type="submit" className="py-1 px-14 rounded-xl bg-main text-md font-bold">
             ADD
           </Button>
         </footer>

@@ -2,7 +2,7 @@ import Image from "next/image";
 import React from "react";
 import image from "../../../../public/assests/images/user22.jpeg";
 import UserInformation from "./_components/user-infirmation";
-import { getServerSession, Session } from "next-auth";
+import { getServerSession,  } from "next-auth";
 import { authOption } from "@/auth";
 
 export default async function User() {

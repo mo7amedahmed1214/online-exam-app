@@ -5,6 +5,7 @@ import HistoryItem from "./_components/history-item";
 import Link from "next/link";
 import { Routes } from "@/lib/constants/emuns.constant";
 import QuizeSkeleton from "@/components/skeleton/quize.skeleton";
+import { Metadata } from "next";
 
 export default async function Page() {
   // varible
@@ -68,3 +69,9 @@ export default async function Page() {
     </div>
   );
 }
+
+// metadata
+export const metadata: Metadata = {
+  title: "History Page",
+  description: "this is the page of user history",
+};

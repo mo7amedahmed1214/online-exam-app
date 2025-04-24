@@ -12,7 +12,8 @@ export async function handelToken() {
       secret: process.env.NEXTAUTH_SECRET!,
       token: tokenCookies,
     });
-  } catch (error) {}
+  } catch (error) {console.log(error);
+  }
 
   return {
     token: token?.token || "",

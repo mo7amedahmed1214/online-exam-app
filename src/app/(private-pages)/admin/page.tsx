@@ -1,5 +1,6 @@
 import Subjects from "@/components/feature/subjects";
 import User from "@/components/feature/user";
+import { Metadata } from "next";
 
 // type props
 type PageProps = {
@@ -19,3 +20,9 @@ export default async function Page({ searchParams }: PageProps) {
     </>
   );
 }
+
+// metadata
+export const metadata: Metadata = {
+  title: "admin Page",
+  description: "this is the page of admins",
+};

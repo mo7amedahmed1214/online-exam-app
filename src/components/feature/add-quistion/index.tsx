@@ -40,7 +40,7 @@ export default function AddQuistion({ quizeId, params }: AddQuistionProps) {
 
           {/* discreption */}
           <DialogDescription className="sr-only">
-            Make changes to your profile here. Click save when you're done.
+            Make changes to your profile here. Click save when youre done.
           </DialogDescription>
         </DialogHeader>
 

@@ -1,6 +1,8 @@
 import NextAuth, { User } from "next-auth";
 import { JWT } from "next-auth/jwt";
 import { UserApp } from "./auth";
+void NextAuth;
+
 
 declare module "next-auth" {
   /**

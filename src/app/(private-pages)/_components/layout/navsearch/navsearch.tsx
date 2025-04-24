@@ -18,7 +18,7 @@ export default function NavSearch() {
     throw new Error("");
   }
   const { id } = context;
-  
+
   // sesstion
   const { data } = useSession();
 
@@ -57,8 +57,8 @@ export default function NavSearch() {
       />
 
       {/*add diploma if admin  */}
-      {data?.user.role === "user" && pathName === "/admin" && <AddDeploma />}
-      {data?.user.role === "user" && pathName === `${Routes.SELECT_QIUZ}/${id}` && <AddQuize />}
+      {data?.user.role === "admin" && pathName === "/admin" && <AddDeploma />}
+      {data?.user.role === "admin" && pathName === `${Routes.SELECT_QIUZ}/${id}` && <AddQuize />}
 
       {/* profile photo */}
       <Avatar className="h-full w-14">
