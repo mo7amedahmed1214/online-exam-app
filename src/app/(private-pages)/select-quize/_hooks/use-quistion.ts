@@ -13,6 +13,10 @@ export default function useQuistion() {
   } = useMutation({
     mutationFn: async (answerFields: AnswerFields) => {
       const payload = await finshExam(answerFields);
+
+      // handle error
+      if ("code" in payload) throw new Error(payload.message);
+
       return payload;
     },
 

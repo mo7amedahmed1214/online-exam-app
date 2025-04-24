@@ -17,6 +17,12 @@ export default function useRegister() {
       const toastId = toast.loading("loading");
       try {
         const response = await signUp(registerFields);
+
+        // handle if payload is success or error
+        if ("code" in response) {
+          throw new Error(response.message);
+        }
+
         console.log(response);
       } finally {
         toast.dismiss(toastId);

@@ -12,9 +12,7 @@ export async function verifyCode(values: verifyFieldes) {
 
   const payload: ApiVerify = await response.json();
 
-  if ("code" in payload) {
-    throw new Error(payload.message);
-  }
+ 
 
   console.log(payload);
   return payload;

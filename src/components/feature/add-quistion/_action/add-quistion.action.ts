@@ -16,9 +16,7 @@ export async function addQuistion(values: addQuestionFields) {
   });
 
   const payload: ApiResponse<AddQuestion> = await respons.json();
-  if("code" in payload){
-    throw new Error(payload.message)
-  }
+  
 
   return payload;
 }

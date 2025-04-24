@@ -16,6 +16,12 @@ export default function useResetPassword() {
       const toastId = toast.loading("loading");
       try {
         const response = await resetPassword(resetPasswordFieldes);
+        
+        //handle if payload if success or error
+        if ("code" in response) {
+          throw new Error(response.message);
+        
+        }
         toast.success(response.message);
       } finally {
         toast.dismiss(toastId);

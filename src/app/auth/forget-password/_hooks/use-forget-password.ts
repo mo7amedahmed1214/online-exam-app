@@ -16,6 +16,11 @@ export default function UseForgetPassword() {
       const toastId = toast.loading("loading");
       try {
         const response = await forgetPassword(forgetFields);
+        // handel if payload is success or error
+        if ("code" in response) {
+          throw new Error(response.message);
+        }
+
         toast.success(response.info);
       } finally {
         toast.dismiss(toastId);

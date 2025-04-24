@@ -13,10 +13,7 @@ export async function resetPassword(values: resetPasswordFieldes) {
 
   const payload: ApiResponse<ResetResponse> = await response.json();
 
-  //handle if payload if success or error
-  if ("code" in payload) {
-    throw new Error(payload.message);
-  }
+  
 
   console.log(payload);
   return payload;

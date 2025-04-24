@@ -14,11 +14,7 @@ export async function forgetPassword(values: forgetFieldes) {
 
   const payload: ApiResponse<ForgetResponse> = await respons.json();
 
-  // handel if payload is success or error
-  if ("code" in payload) {
-    throw new Error(payload.message);
-  }
-
+  
   console.log(payload);
   return payload;
 }

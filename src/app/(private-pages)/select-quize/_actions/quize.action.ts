@@ -17,8 +17,6 @@ export async function finshExam(answerFields: AnswerFields) {
   const payload: ApiResponse<QuizResult> = await respons.json();
   console.log(payload);
 
-  // handle error
-  if ("code" in payload) throw new Error(payload.message);
-
+ 
   return payload;
 }

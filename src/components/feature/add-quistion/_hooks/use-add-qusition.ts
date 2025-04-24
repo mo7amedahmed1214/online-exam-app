@@ -15,6 +15,10 @@ export default function useAddQuistion() {
     mutationFn: async (values: addQuestionFields) => {
       const respons = await addQuistion(values);
 
+      if ("code" in respons) {
+        throw new Error(respons.message);
+      }
+
       return respons;
     },
 

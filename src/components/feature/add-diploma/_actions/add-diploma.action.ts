@@ -13,11 +13,7 @@ export async function addDiplomaAction(values: FormData) {
 
   const payload: ApiResponse<Subject> = await respons.json();
 
-  // handle error
-  if ("code" in payload) {
-    console.log("err", payload.message);
-    throw new Error(payload.message);
-  }
+  
 
   return payload;
 }

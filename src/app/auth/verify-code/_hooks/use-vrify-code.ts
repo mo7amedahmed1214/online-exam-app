@@ -16,6 +16,12 @@ export default function useVrifyCode() {
       const toastId = toast.loading("loading");
       try {
         const response = await verifyCode(verifyFieldes);
+
+        // handle error
+        if ("code" in response) {
+          throw new Error(response.message);
+        }
+
         toast.success(response.status);
       } finally {
         toast.dismiss(toastId);
