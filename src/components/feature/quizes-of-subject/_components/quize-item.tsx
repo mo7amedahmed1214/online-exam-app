@@ -6,7 +6,8 @@ import Re from "../../../../../public/assests/images/download.png";
 import AddQuistion from "../../add-quistion";
 import { getServerSession } from "next-auth";
 import { authOption } from "@/auth";
-import { QuizeCard } from "@/app/(private-pages)/select-quize/_components/quize-card";
+import { QuizeCard } from "@/app/(private-pages)/select-quize/_components";
+
 
 // type props
 type QuizeItemProps = {
