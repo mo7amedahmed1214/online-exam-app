@@ -1,24 +1,15 @@
 "use client";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { SubmitHandler, useForm } from "react-hook-form";
 import Link from "next/link";
 import { forgetFieldes, forgetSchema } from "@/lib/schemes/auth.schema";
-import { zodResolver } from "@hookform/resolvers/zod";;
-import { Pages, Routes } from "@/lib/constants/emuns.constant";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Pages, Routes } from "@/lib/constants/app.constant";
 import UseForgetPassword from "../_hooks/use-forget-password";
 
 export default function FormForgetPassword() {
-  
-
   // mutation
   const { isPending, forgetPass, error } = UseForgetPassword();
 
@@ -75,8 +66,7 @@ export default function FormForgetPassword() {
           <p className="relative -top-4 font-medium w-fit ml-auto">
             <Link
               href={`${Routes.AUTH}/${Pages.FORGOT_PASSWORD}`}
-              className="text-main hover:text-mainHover transition-colors duration-300  font-poppins"
-            >
+              className="text-main hover:text-mainHover transition-colors duration-300  font-poppins">
               {" "}
               Recover Password?
             </Link>
@@ -87,8 +77,7 @@ export default function FormForgetPassword() {
             disabled={isPending || (form.formState.isSubmitted && !form.formState.isValid)}
             type="submit"
             variant={"authBtn"}
-            size={"autBtn"}
-          >
+            size={"autBtn"}>
             Send
           </Button>
         </form>

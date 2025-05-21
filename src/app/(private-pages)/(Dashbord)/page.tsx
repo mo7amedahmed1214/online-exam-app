@@ -9,20 +9,18 @@ type HomeProps = {
 
 export default async function Home({ searchParams }: HomeProps) {
   return (
-    <>
-      <div className="w-full space-y-10">
-        {/* user component*/}
-        <User />
+    <div className="w-full space-y-10">
+      {/* user component*/}
+      <User />
 
-        {/* subjects component*/}
-        <Subjects searchParams={searchParams} />
-      </div>
-    </>
+      {/* subjects component*/}
+      <Subjects searchParams={searchParams} />
+    </div>
   );
 }
 
 // metaData
-export const metadata:Metadata = {
+export const metadata: Metadata = {
   title: "Dashboard Page",
   description: "this the first page of the application",
 };

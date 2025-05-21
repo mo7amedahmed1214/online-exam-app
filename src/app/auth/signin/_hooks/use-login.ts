@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 
 export default function useLogin() {
   // mutation
-  const { isPending, error,  mutate } = useMutation({
+  const { isPending, error, mutate } = useMutation({
     // login fun
     mutationFn: async (loginFieldes: loginFieldes) => {
       const toastId = toast.loading("loading");
@@ -24,13 +24,12 @@ export default function useLogin() {
       }
     },
 
-    onSuccess(data) {
+    onSuccess() {
       toast.success("login successfully");
+
       setTimeout(() => {
         window.location.href = "/";
       }, 1000);
-      console.log(data?.url);
-      
     },
 
     onError(error) {

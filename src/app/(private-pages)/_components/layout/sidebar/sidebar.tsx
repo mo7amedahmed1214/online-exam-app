@@ -1,12 +1,12 @@
 "use client";
-import logoTitle from "../../../../../../public/assests/images/Final Logo 1.png";
+import logoTitle from "@assets/images/Final Logo 1.png";
 import Image from "next/image";
 import Link from "next/link";
 import { MdSpaceDashboard } from "react-icons/md";
 import { FaHistory } from "react-icons/fa";
 import { RiLogoutBoxFill } from "react-icons/ri";
 import { usePathname } from "next/navigation";
-import { Pages, Routes } from "@/lib/constants/emuns.constant";
+import { Pages, Routes } from "@/lib/constants/app.constant";
 import { MdMenu } from "react-icons/md";
 import { Sidebar, SidebarContent, useSidebar } from "@/components/ui/sidebar";
 import { signOut, useSession } from "next-auth/react";
@@ -17,7 +17,7 @@ export function AppSidebar() {
   const pathName = usePathname();
 
   // seations
-  const { data} = useSession();
+  const { data } = useSession();
 
   return (
     <Sidebar className=" h-fit lg:w-fit   ms-8 border-none">
@@ -42,8 +42,7 @@ export function AppSidebar() {
                 <li>
                   <Link
                     href={`${Routes.ROOT}`}
-                    className={`p-2 text-md md:text-xl font-poppins rounded-lg font-semibold text-textColor ${pathName === `${Routes.ROOT}` ? "bg-main !text-white " : ""}`}
-                  >
+                    className={`p-2 text-md md:text-xl font-poppins rounded-lg font-semibold text-textColor ${pathName === `${Routes.ROOT}` ? "bg-main !text-white " : ""}`}>
                     <MdSpaceDashboard
                       className={`inline-block w-7 h-6 mr-8 text-main  ${pathName === `${Routes.ROOT}` ? "bg-main !text-white " : ""}`}
                     />
@@ -61,8 +60,7 @@ export function AppSidebar() {
                 <li>
                   <Link
                     href={`${Routes.QUIZ_HISTORY}`}
-                    className={`p-2 text-md md:text-xl font-poppins rounded-lg font-semibold text-textColor ${pathName === `${Routes.QUIZ_HISTORY}` ? "bg-main !text-white " : ""}`}
-                  >
+                    className={`p-2 text-md md:text-xl font-poppins rounded-lg font-semibold text-textColor ${pathName === `${Routes.QUIZ_HISTORY}` ? "bg-main !text-white " : ""}`}>
                     <FaHistory
                       className={`inline-block w-7 h-6 mr-8 text-main  ${pathName === `${Routes.QUIZ_HISTORY}` ? "bg-main !text-white " : ""}`}
                     />
@@ -80,8 +78,7 @@ export function AppSidebar() {
                 <li>
                   <Link
                     href={`${Routes.ADMIN}`}
-                    className={`p-2 text-md md:text-xl font-poppins rounded-lg font-semibold text-textColor ${pathName === `${Routes.ADMIN}` ? "bg-main !text-white " : ""}`}
-                  >
+                    className={`p-2 text-md md:text-xl font-poppins rounded-lg font-semibold text-textColor ${pathName === `${Routes.ADMIN}` ? "bg-main !text-white " : ""}`}>
                     <MdSpaceDashboard
                       className={`inline-block w-7 h-6 mr-8 text-main  ${pathName === `${Routes.ADMIN}` ? "bg-main !text-white " : ""}`}
                     />
@@ -97,8 +94,7 @@ export function AppSidebar() {
             <Link
               onClick={() => signOut({ callbackUrl: (window.location.href = "/auth/signin") })}
               href={`${Routes.AUTH}/${Pages.LOGIN}`}
-              className={`p-2 text-md md:text-xl font-poppins rounded-lg font-semibold text-textColor ${pathName === `${Routes.AUTH}/${Pages.LOGIN}` ? "bg-main !text-white " : ""}`}
-            >
+              className={`p-2 text-md md:text-xl font-poppins rounded-lg font-semibold text-textColor ${pathName === `${Routes.AUTH}/${Pages.LOGIN}` ? "bg-main !text-white " : ""}`}>
               <RiLogoutBoxFill
                 className={`inline-block w-7 h-6 mr-8 text-main  ${pathName === `${Routes.AUTH}/${Pages.LOGIN}` ? "bg-main !text-white " : ""}`}
               />

@@ -1,7 +1,7 @@
 import { verifyFieldes } from "@/lib/schemes/auth.schema";
 import { useMutation } from "@tanstack/react-query";
 import toast from "react-hot-toast";
-import { Pages, Routes } from "@/lib/constants/emuns.constant";
+import { Pages, Routes } from "@/lib/constants/app.constant";
 import { useRouter } from "next/navigation";
 import { verifyCode } from "../_actions/verify.action";
 

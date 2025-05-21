@@ -1,9 +1,9 @@
 import React, { Suspense } from "react";
 import { JSON_HEADER } from "@/lib/constants/api.constant";
-import { handelToken } from "@/lib/utiles/get-token";
+import { handelToken } from "@/lib/utils/get-token";
 import HistoryItem from "./_components/history-item";
 import Link from "next/link";
-import { Routes } from "@/lib/constants/emuns.constant";
+import { Routes } from "@/lib/constants/app.constant";
 import QuizeSkeleton from "@/components/skeleton/quize.skeleton";
 import { Metadata } from "next";
 
@@ -42,15 +42,12 @@ export default async function Page() {
     <div className="py-7 px-4 bg-slate-100 rounded-2xl flex justify-center items-center flex-col gap-4 ">
       {/* sory */}
       <p className="text-center">
-        OOps! No history for You, Starting selecting exams now and answer questions by clicking the
-        button below and find something you love!
+        OOps! No history for You, Starting selecting exams now and answer questions by clicking the button below and find something you
+        love!
       </p>
 
       {/* close */}
-      <Link
-        className="btn bg-main  hover:bg-blue-700  text-white p-2 rounded-md transition-colors duration-300"
-        href={`${Routes.ROOT}`}
-      >
+      <Link className="btn bg-main  hover:bg-blue-700  text-white p-2 rounded-md transition-colors duration-300" href={`${Routes.ROOT}`}>
         Back To Subjects
       </Link>
     </div>

@@ -4,7 +4,6 @@ import { Inter, Poppins, Roboto } from "next/font/google";
 import { Toaster } from "react-hot-toast";
 import Providers from "@/components/providers";
 
-
 const roboto = Roboto({
   subsets: ["latin"],
   weight: ["100", "300", "400", "500", "700", "900"],
@@ -36,16 +35,19 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${poppins.variable} ${roboto.variable}`}>
       <body className="font-sans">
-        <Toaster
-          toastOptions={{
-            style: {
-              fontWeight: "600",
-              fontSize: "14px",
-              fontFamily: "sans-serif",
-            },
-          }}
-        />
-        <Providers>{children}</Providers>
+        <Providers>
+          {children}
+
+          <Toaster
+            toastOptions={{
+              style: {
+                fontWeight: "600",
+                fontSize: "14px",
+                fontFamily: "sans-serif",
+              },
+            }}
+          />
+        </Providers>
       </body>
     </html>
   );

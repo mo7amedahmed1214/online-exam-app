@@ -1,8 +1,8 @@
 "use server";
 
 import { JSON_HEADER } from "@/lib/constants/api.constant";
-import { AnswerFields } from "@/lib/schemes/quize.schema";
-import { handelToken } from "@/lib/utiles/get-token";
+import { AnswerFields } from "@/lib/schemes/quiz.schema";
+import { handelToken } from "@/lib/utils/get-token";
 
 export async function finshExam(answerFields: AnswerFields) {
   const respons = await fetch(`${process.env.API}/questions/check`, {
@@ -17,6 +17,5 @@ export async function finshExam(answerFields: AnswerFields) {
   const payload: ApiResponse<QuizResult> = await respons.json();
   console.log(payload);
 
- 
   return payload;
 }

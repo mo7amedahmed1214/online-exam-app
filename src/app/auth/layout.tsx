@@ -12,22 +12,22 @@ export default function AuthLayout({ children }: AuthLayoutProps) {
   return (
     <main className="grid grid-cols-2 gap-8 lg:gap-32 h-screen fixed left-0 right-0">
       {/* layout */}
-      <section className="px-4 sm:px-10 md:px-14 lg:px-20 py-10  bg-[#F0F4FC]  md:rounded-tr-100 md:rounded-br-100 shadow-2xl h-screen">
+      <section className="px-4 sm:px-10 md:px-14 lg:px-20 py-10  bg-custom-gray-50  md:rounded-tr-100 md:rounded-br-100 shadow-2xl h-screen">
         <Logo />
       </section>
 
       {/* children */}
-      <section className="   py-10 overflow-y-auto ">
+      <section className="py-10 overflow-y-auto ">
         {/* header component*/}
         <Header />
 
         {/* childern */}
-        <div className="">
+        <main>
           {children}
 
           {/* socail component */}
           <Socail />
-        </div>
+        </main>
       </section>
     </main>
   );

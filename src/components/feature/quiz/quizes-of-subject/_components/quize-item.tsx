@@ -1,13 +1,11 @@
-
 import Image from "next/image";
 import React from "react";
-import Re from "../../../../../public/assests/images/download.png";
+import Re from "@assets/images/download.png";
 
-import AddQuistion from "../../add-quistion";
 import { getServerSession } from "next-auth";
-import { authOption } from "@/auth";
+import { authOptions } from "@/auth";
 import { QuizeCard } from "@/app/(private-pages)/select-quize/_components";
-
+import AddQuistion from "@/components/feature/question/add-quistion";
 
 // type props
 type QuizeItemProps = {
@@ -17,7 +15,7 @@ type QuizeItemProps = {
 
 export default async function QuizeItem({ quizeInfo, params }: QuizeItemProps) {
   // sessoin
-  const sessoin = await getServerSession(authOption);
+  const sessoin = await getServerSession(authOptions);
 
   return (
     <div className="w-full sm:h-103 shadow-comShadow rounded-10 py-4 px-6 bg-bgComp flex flex-col  sm:flex-row  gap-4">
@@ -46,9 +44,7 @@ export default async function QuizeItem({ quizeInfo, params }: QuizeItemProps) {
           {sessoin?.user.role === "user" && <QuizeCard quizeId={quizeInfo._id} />}
 
           {/* add quistion btn => if admin */}
-          {sessoin?.user.role === "admin" && (
-            <AddQuistion quizeId={quizeInfo._id} params={params} />
-          )}
+          {sessoin?.user.role === "admin" && <AddQuistion quizeId={quizeInfo._id} params={params} />}
 
           {/* */}
         </div>

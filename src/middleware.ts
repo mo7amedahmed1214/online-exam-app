@@ -1,13 +1,9 @@
 import { getToken } from "next-auth/jwt";
 import { NextRequest, NextResponse } from "next/server";
-import { Pages, Routes } from "./lib/constants/emuns.constant";
+import { Pages, Routes } from "./lib/constants/app.constant";
 
-const potectedPages = new Set([
-  `${Routes.QUIZ_HISTORY}`,
-  `${Routes.ROOT}`,
-  `${Routes.SELECT_QIUZ}`,
-  `${Routes.ADMIN}`,
-]);
+// Not beneficial
+const protectedPages = new Set([`${Routes.QUIZ_HISTORY}`, `${Routes.ROOT}`, `${Routes.SELECT_QIUZ}`, `${Routes.ADMIN}`]);
 
 const authPages = new Set([
   `${Routes.AUTH}/${Pages.FORGOT_PASSWORD}`,
@@ -19,9 +15,8 @@ const authPages = new Set([
 
 export default async function middleware(req: NextRequest) {
   const token = await getToken({ req });
-  console.log(token?.token);
 
-  if (potectedPages.has(req.nextUrl.pathname)) {
+  if (protectedPages.has(req.nextUrl.pathname)) {
     if (token) return NextResponse.next();
 
     const redirect = new URL(`${Routes.AUTH}/${Pages.LOGIN}`, req.nextUrl.origin);
@@ -36,6 +31,8 @@ export default async function middleware(req: NextRequest) {
       return NextResponse.next();
     }
   }
+
+  NextResponse.next();
 }
 
 export const config = {
