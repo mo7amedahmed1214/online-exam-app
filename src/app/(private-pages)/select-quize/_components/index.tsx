@@ -9,11 +9,10 @@ import {
 } from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
 import { JSON_HEADER } from "@/lib/constants/api.constant";
-import { handelToken } from "@/lib/utiles/get-token";
+import { handelToken } from "@/lib/utils/get-token";
 import Link from "next/link";
-import { Routes } from "@/lib/constants/emuns.constant";
+import { Routes } from "@/lib/constants/app.constant";
 import FormQuistion from "./quize-card/_components/form-quistion";
-
 
 // type props
 type QuizeCardProps = {
@@ -55,8 +54,7 @@ export async function QuizeCard({ quizeId }: QuizeCardProps) {
 
           {/* discription */}
           <AlertDialogDescription>
-            This action cannot be undone. This will permanently delete your account and remove your
-            data from our servers.
+            This action cannot be undone. This will permanently delete your account and remove your data from our servers.
           </AlertDialogDescription>
         </AlertDialogHeader>
 
@@ -67,16 +65,14 @@ export async function QuizeCard({ quizeId }: QuizeCardProps) {
           <div className="py-7 px-4 bg-slate-100 rounded-2xl flex justify-center items-center flex-col gap-4 ">
             {/* sory */}
             <p className="text-center">
-              OOps! No questions of this exam, Starting selecting exams now by clicking the button
-              below and find something you love!
+              OOps! No questions of this exam, Starting selecting exams now by clicking the button below and find something you love!
             </p>
 
             {/* colse dilog */}
             <AlertDialogCancel asChild>
               <Link
                 className="btn bg-main  hover:bg-blue-500 hover:text-white  text-white p-2 rounded-md transition-colors duration-300"
-                href={`${Routes.ROOT}`}
-              >
+                href={`${Routes.ROOT}`}>
                 Back To Subjects
               </Link>
             </AlertDialogCancel>

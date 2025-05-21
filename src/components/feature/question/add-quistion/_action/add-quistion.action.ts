@@ -2,7 +2,7 @@
 
 import { JSON_HEADER } from "@/lib/constants/api.constant";
 import { addQuestionFields } from "@/lib/schemes/add-question.schema";
-import { handelToken } from "@/lib/utiles/get-token";
+import { handelToken } from "@/lib/utils/get-token";
 
 export async function addQuistion(values: addQuestionFields) {
   // fetch
@@ -16,7 +16,6 @@ export async function addQuistion(values: addQuestionFields) {
   });
 
   const payload: ApiResponse<AddQuestion> = await respons.json();
-  
 
   return payload;
 }

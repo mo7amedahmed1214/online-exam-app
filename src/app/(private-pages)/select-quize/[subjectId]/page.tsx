@@ -1,6 +1,6 @@
-import QuizesOfSubject from "@/components/feature/quizes-of-subject";
+import QuizesOfSubject from "@/components/feature/quiz/quizes-of-subject";
 import { JSON_HEADER } from "@/lib/constants/api.constant";
-import { handelToken } from "@/lib/utiles/get-token";
+import { handelToken } from "@/lib/utils/get-token";
 import { Metadata } from "next";
 
 // type Props
@@ -33,9 +33,7 @@ export default async function Page({ searchParams, params }: PageProps) {
 
   // condtion to filter data by searchParams
   if (searchParams.search) {
-    data = data.filter((quiz) =>
-      quiz.title.toLowerCase().includes(searchParams.search.toLowerCase())
-    );
+    data = data.filter((quiz) => quiz.title.toLowerCase().includes(searchParams.search.toLowerCase()));
   }
   return (
     <div className="space-y-10">

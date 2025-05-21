@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Re from "../../../../../public/assests/images/download.png";
+import Re from "@assets/images/download.png";
 import { HistoryAnswer } from "./history-answer";
 // type
 type HistoryItemProps = {

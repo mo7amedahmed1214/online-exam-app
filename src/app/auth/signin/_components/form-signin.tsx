@@ -1,23 +1,17 @@
 "use client";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { SubmitHandler, useForm } from "react-hook-form";
 import Link from "next/link";
 import { loginFieldes, loginSchema } from "@/lib/schemes/auth.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Pages, Routes } from "@/lib/constants/emuns.constant";
+import { Pages, Routes } from "@/lib/constants/app.constant";
 import { useState } from "react";
 import { VscEye } from "react-icons/vsc";
 import { VscEyeClosed } from "react-icons/vsc";
 import useLogin from "../_hooks/use-login";
+
 export default function FormSignIn() {
   // mutaion
   const { error, isPending, login } = useLogin();
@@ -48,11 +42,7 @@ export default function FormSignIn() {
 
       {/* form */}
       <Form {...form}>
-        <form
-          action=""
-          onSubmit={form.handleSubmit(onSubmit)}
-          className="space-y-8"
-        >
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           {/* email */}
           <FormField
             control={form.control}
@@ -75,9 +65,7 @@ export default function FormSignIn() {
                 {/* feedback */}
                 <FormMessage>
                   {/* handle email or pass incorrect */}
-                  {error && error.message === "incorrect email or password" && (
-                    <>{error.message}</>
-                  )}
+                  {error && error.message === "incorrect email or password" && <>{error.message}</>}
                 </FormMessage>
               </FormItem>
             )}
@@ -90,7 +78,7 @@ export default function FormSignIn() {
             render={({ field }) => (
               <FormItem className="relative">
                 {/* lable */}
-                <FormLabel className="sr-only" >password</FormLabel>
+                <FormLabel className="sr-only">password</FormLabel>
 
                 {/* field */}
                 <FormControl>
@@ -105,8 +93,7 @@ export default function FormSignIn() {
                 {/* show password */}
                 <div
                   className="absolute text-xl top-3 right-3 flex items-center text-iconPass"
-                  onClick={() => setShowPass((prev) => !prev)}
-                >
+                  onClick={() => setShowPass((prev) => !prev)}>
                   {showPass ? <VscEye /> : <VscEyeClosed />}
                 </div>
 
@@ -120,8 +107,7 @@ export default function FormSignIn() {
           <p className="relative -top-4 font-medium w-fit   ml-auto">
             <Link
               href={`${Routes.AUTH}/${Pages.FORGOT_PASSWORD}`}
-              className="text-main hover:text-mainHover transition-colors duration-300 font-poppins "
-            >
+              className="text-main hover:text-mainHover transition-colors duration-300 font-poppins ">
               {" "}
               Recover Password?
             </Link>
@@ -129,14 +115,10 @@ export default function FormSignIn() {
 
           {/* submit */}
           <Button
-            disabled={
-              isPending ||
-              (form.formState.isSubmitted && !form.formState.isValid)
-            }
+            disabled={isPending || (form.formState.isSubmitted && !form.formState.isValid)}
             type="submit"
             variant={"authBtn"}
-            size={"autBtn"}
-          >
+            size={"autBtn"}>
             Sign in
           </Button>
         </form>

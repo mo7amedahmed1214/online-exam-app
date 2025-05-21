@@ -1,12 +1,5 @@
 "use client";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { SubmitHandler, useForm } from "react-hook-form";
@@ -24,7 +17,7 @@ export default function FormResetPassword() {
   // Form
   const form = useForm<resetPasswordFieldes>({
     defaultValues: {
-      email: "",
+      email: "", // Incorrect
       newPassword: "",
     },
 
@@ -95,8 +88,7 @@ export default function FormResetPassword() {
                 {/* show pass */}
                 <div
                   className="absolute text-xl top-3 right-3 flex items-center text-iconPass"
-                  onClick={() => setShowPass((prev) => !prev)}
-                >
+                  onClick={() => setShowPass((prev) => !prev)}>
                   {showPass ? <VscEye /> : <VscEyeClosed />}
                 </div>
 
@@ -111,8 +103,7 @@ export default function FormResetPassword() {
             disabled={isPending || (form.formState.isSubmitted && !form.formState.isValid)}
             type="submit"
             variant={"authBtn"}
-            size={"autBtn"}
-          >
+            size={"autBtn"}>
             Sign in
           </Button>
         </form>

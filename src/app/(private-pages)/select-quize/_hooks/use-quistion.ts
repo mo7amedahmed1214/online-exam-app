@@ -1,7 +1,7 @@
 import { useMutation } from "@tanstack/react-query";
 
 import { finshExam } from "../_actions/quize.action";
-import { AnswerFields } from "@/lib/schemes/quize.schema";
+import { AnswerFields } from "@/lib/schemes/quiz.schema";
 
 export default function useQuistion() {
   // mutation

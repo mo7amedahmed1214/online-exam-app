@@ -1,26 +1,13 @@
 "use client";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { DialogClose } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { addQuestionFields, addQuestionSchema } from "@/lib/schemes/add-question.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import useAddQuistion from "../_hooks/use-add-qusition";
+import { addQuestionFields, addQuestionSchema } from "@/lib/schemes/question.schema";
 
 // type Props
 type AddQuistionFormProps = {
@@ -33,7 +20,7 @@ export default function AddQuestionForm({ quizeId, params }: AddQuistionFormProp
   const { subjectId } = params;
 
   // mutiation
-  const { addQuetion, isPending, } = useAddQuistion();
+  const { addQuetion, isPending } = useAddQuistion();
 
   // form
   const form = useForm<addQuestionFields>({
@@ -71,11 +58,7 @@ export default function AddQuestionForm({ quizeId, params }: AddQuistionFormProp
 
               {/* field */}
               <FormControl>
-                <Input
-                  placeholder=""
-                  className="form-control h-10  rounded-2xl w-full"
-                  {...field}
-                />
+                <Input placeholder="" className="form-control h-10  rounded-2xl w-full" {...field} />
               </FormControl>
 
               {/* feedback */}
@@ -95,11 +78,7 @@ export default function AddQuestionForm({ quizeId, params }: AddQuistionFormProp
 
               {/* field */}
               <FormControl>
-                <Input
-                  placeholder=""
-                  className="form-control h-10  rounded-2xl w-full"
-                  {...field}
-                />
+                <Input placeholder="" className="form-control h-10  rounded-2xl w-full" {...field} />
               </FormControl>
 
               {/* feadback */}
@@ -119,11 +98,7 @@ export default function AddQuestionForm({ quizeId, params }: AddQuistionFormProp
 
               {/* field */}
               <FormControl>
-                <Input
-                  placeholder=""
-                  className="form-control h-10  rounded-2xl w-full"
-                  {...field}
-                />
+                <Input placeholder="" className="form-control h-10  rounded-2xl w-full" {...field} />
               </FormControl>
 
               {/* feedback */}
@@ -143,11 +118,7 @@ export default function AddQuestionForm({ quizeId, params }: AddQuistionFormProp
 
               {/* field */}
               <FormControl>
-                <Input
-                  placeholder=""
-                  className="form-control h-10  rounded-2xl w-full"
-                  {...field}
-                />
+                <Input placeholder="" className="form-control h-10  rounded-2xl w-full" {...field} />
               </FormControl>
 
               {/* feedback */}
@@ -167,11 +138,7 @@ export default function AddQuestionForm({ quizeId, params }: AddQuistionFormProp
 
               {/* field */}
               <FormControl>
-                <Input
-                  placeholder=""
-                  className="form-control h-10  rounded-2xl w-full"
-                  {...field}
-                />
+                <Input placeholder="" className="form-control h-10  rounded-2xl w-full" {...field} />
               </FormControl>
 
               {/* feedback */}
@@ -219,8 +186,7 @@ export default function AddQuestionForm({ quizeId, params }: AddQuistionFormProp
           <DialogClose asChild>
             <Button
               type="button"
-              className="py-1 px-6 rounded-xl bg-white hover:bg-slate-100 text-main border border-main text-sm font-medium"
-            >
+              className="py-1 px-6 rounded-xl bg-white hover:bg-slate-100 text-main border border-main text-sm font-medium">
               Back
             </Button>
           </DialogClose>
@@ -230,8 +196,7 @@ export default function AddQuestionForm({ quizeId, params }: AddQuistionFormProp
             type="button"
             disabled={isPending || (form.formState.isSubmitting && !form.formState.isValid)}
             onClick={() => form.reset()}
-            className="py-1 px-14 rounded-xl bg-main text-md font-bold"
-          >
+            className="py-1 px-14 rounded-xl bg-main text-md font-bold">
             Add Another question
           </Button>
 
@@ -239,8 +204,7 @@ export default function AddQuestionForm({ quizeId, params }: AddQuistionFormProp
           <Button
             disabled={isPending || (form.formState.isSubmitted && !form.formState.isValid)}
             type="submit"
-            className="py-1 px-14 rounded-xl bg-main text-md font-bold"
-          >
+            className="py-1 px-14 rounded-xl bg-main text-md font-bold">
             Done
           </Button>
         </footer>

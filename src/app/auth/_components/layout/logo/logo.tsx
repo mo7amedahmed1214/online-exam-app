@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import imageLogo from "../../../../../../public/assests/images/bro.png";
+import imageLogo from "@assets/images/bro.png";
 
 export default function Logo() {
   return (
@@ -13,9 +13,7 @@ export default function Logo() {
         </h1>
 
         {/* description */}
-        <p className="leading-[40px] mt-2 font-poppins max-w-96">
-          Quidem autem voluptatibus qui quaerat aspernatur architecto natus
-        </p>
+        <p className="leading-[40px] mt-2 font-poppins max-w-96">Quidem autem voluptatibus qui quaerat aspernatur architecto natus</p>
       </div>
 
       {/* logo image */}

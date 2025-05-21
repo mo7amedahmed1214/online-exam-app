@@ -1,26 +1,27 @@
-
 declare type UserApp = {
-    _id: string,
-    username: string,
-    firstName: string,
-    lastName: string,
-    email: string,
-    phone: string,
-    role: string,
-    isVerified: boolean,
-}
+  _id: string;
+  username: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  role: string;
+  isVerified: boolean;
+};
 
 declare type LoginResponse = {
-    token: string,
-    user: UserApp,
-}
+  token: string;
+  user: UserApp;
+};
 
 // reset
 declare type ResetResponse = {
-    token: string,
-}
+  token: string;
+};
 
-// forget 
-declare type ForgetResponse={
-info:string
-}
+// forget
+declare type ForgetResponse = {
+  info: string;
+};
+
+declare type ApiVerify = SuccessfullVerify | ErrorResponse;

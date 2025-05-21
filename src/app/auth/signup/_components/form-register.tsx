@@ -1,25 +1,18 @@
 "use client";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { SubmitHandler, useForm } from "react-hook-form";
 import Link from "next/link";
 import { registerFields, registerSchema } from "@/lib/schemes/auth.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Pages, Routes } from "@/lib/constants/emuns.constant";
+import { Pages, Routes } from "@/lib/constants/app.constant";
 import { useState } from "react";
 import { VscEye, VscEyeClosed } from "react-icons/vsc";
 import useRegister from "../_hooks/use-register";
 
 export default function FormRegister() {
-    // mutation
+  // mutation
   const { error, isPending, register } = useRegister();
 
   // state
@@ -183,8 +176,7 @@ export default function FormRegister() {
                 {/* show pass */}
                 <div
                   className="absolute text-xl top-3 right-3 flex items-center text-iconPass"
-                  onClick={() => setShowPass((prev) => !prev)}
-                >
+                  onClick={() => setShowPass((prev) => !prev)}>
                   {showPass ? <VscEye /> : <VscEyeClosed />}
                 </div>
 
@@ -216,8 +208,7 @@ export default function FormRegister() {
                 {/* show pass */}
                 <div
                   className="absolute text-xl top-3 right-3 flex items-center text-iconPass"
-                  onClick={() => setShowRePass((prev) => !prev)}
-                >
+                  onClick={() => setShowRePass((prev) => !prev)}>
                   {showRePass ? <VscEye /> : <VscEyeClosed />}
                 </div>
 
@@ -257,8 +248,7 @@ export default function FormRegister() {
             Already have an account?
             <Link
               href={`${Routes.AUTH}/${Pages.LOGIN}`}
-              className="text-main hover:text-mainHover hover:underline  transition-all duration-300 "
-            >
+              className="text-main hover:text-mainHover hover:underline  transition-all duration-300 ">
               {" "}
               Login
             </Link>
@@ -269,8 +259,7 @@ export default function FormRegister() {
             disabled={isPending || (form.formState.isSubmitted && !form.formState.isValid)}
             type="submit"
             variant={"authBtn"}
-            size={"autBtn"}
-          >
+            size={"autBtn"}>
             Create Account
           </Button>
         </form>

@@ -22,5 +22,3 @@ declare type PaginatedResponse<T> = {
 } & T;
 
 declare type ApiResponse<T> = SuccessfullyResponse<T> | ErrorResponse;
-
-declare type ApiVerify = SuccessfullVerify | ErrorResponse;

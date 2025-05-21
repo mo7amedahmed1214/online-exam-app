@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
 import Link from "next/link";
-import { Routes } from "@/lib/constants/emuns.constant";
+import { Routes } from "@/lib/constants/app.constant";
 import QuizeSkeleton from "@/components/skeleton/quize.skeleton";
 import QuizeItem from "./_components/quize-item";
 import Client from "@/components/common/client";
@@ -25,15 +25,13 @@ export default function QuizesOfSubject({ quize, params }: QuizesOfSubjectProps)
         <div className="py-7 px-4 bg-slate-100 rounded-2xl flex justify-center items-center flex-col gap-4 ">
           {/* sory */}
           <p className="text-center">
-            OOps! No exam of this subject, Starting selecting exams now by clicking the button below
-            and find something you love!
+            OOps! No exam of this subject, Starting selecting exams now by clicking the button below and find something you love!
           </p>
 
           {/* close */}
           <Link
             className="btn bg-main  hover:bg-blue-700  text-white p-2 rounded-md transition-colors duration-300"
-            href={`${Routes.ROOT}`}
-          >
+            href={`${Routes.ROOT}`}>
             Back To Subjects
           </Link>
         </div>
@@ -41,13 +39,13 @@ export default function QuizesOfSubject({ quize, params }: QuizesOfSubjectProps)
         // if found exams => show them
         quize.map((quize) => (
           <Suspense fallback={<QuizeSkeleton />} key={quize._id}>
-            <QuizeItem key={quize._id} quizeInfo={quize} params={params}/>
+            <QuizeItem key={quize._id} quizeInfo={quize} params={params} />
           </Suspense>
         ))
       )}
 
       {/* client for use the context  */}
-      <Client params={params}/>
+      <Client params={params} />
     </div>
   );
 }

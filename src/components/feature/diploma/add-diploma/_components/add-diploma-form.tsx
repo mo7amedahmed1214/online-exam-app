@@ -1,20 +1,12 @@
 import React, { useRef } from "react";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { DialogClose } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { addDiplomaFields, addDiplomaSchema } from "@/lib/schemes/add-diploma.schema";
+import { addDiplomaFields, addDiplomaSchema } from "@/lib/schemes/diploma.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import useAddDiploma from "../_hooks/use-add-diploma";
-
 
 export default function AddDiplomaForm() {
   // hook
@@ -42,12 +34,7 @@ export default function AddDiplomaForm() {
 
   return (
     <Form {...form}>
-      <form
-        action=""
-        onSubmit={form.handleSubmit(onSubmit)}
-        ref={formRef}
-        className="flex items-center flex-wrap justify-between"
-      >
+      <form action="" onSubmit={form.handleSubmit(onSubmit)} ref={formRef} className="flex items-center flex-wrap justify-between">
         {/* icon field */}
         <FormField
           control={form.control}
@@ -59,12 +46,7 @@ export default function AddDiplomaForm() {
 
               {/* field */}
               <FormControl>
-                <Input
-                  placeholder="+"
-                  type="file"
-                  className="form-control h-10 w-56 rounded-2xl"
-                  {...field}
-                />
+                <Input placeholder="+" type="file" className="form-control h-10 w-56 rounded-2xl" {...field} />
               </FormControl>
 
               {/* feedback */}
@@ -103,9 +85,10 @@ export default function AddDiplomaForm() {
           </DialogClose>
 
           {/* add btn */}
-          <Button 
-          disabled={isPending || (form.formState.isSubmitted && !form.formState.isValid)}
-          type="submit" className="py-1 px-14 rounded-xl bg-main text-md font-bold">
+          <Button
+            disabled={isPending || (form.formState.isSubmitted && !form.formState.isValid)}
+            type="submit"
+            className="py-1 px-14 rounded-xl bg-main text-md font-bold">
             ADD
           </Button>
         </footer>

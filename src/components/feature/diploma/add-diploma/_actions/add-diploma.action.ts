@@ -1,5 +1,5 @@
 "use server";
-import { handelToken } from "@/lib/utiles/get-token";
+import { handelToken } from "@/lib/utils/get-token";
 
 export async function addDiplomaAction(values: FormData) {
   // fetch
@@ -12,8 +12,6 @@ export async function addDiplomaAction(values: FormData) {
   });
 
   const payload: ApiResponse<Subject> = await respons.json();
-
-  
 
   return payload;
 }

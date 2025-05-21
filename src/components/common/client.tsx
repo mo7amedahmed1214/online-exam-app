@@ -1,6 +1,6 @@
 "use client";
 
-import { userContext } from "@/context/user.context";
+import { userContext } from "@/components/providers/user/user.provider";
 import { useContext, useEffect } from "react";
 
 type ClientProps = {
@@ -20,7 +20,7 @@ export default function Client({ params }: ClientProps) {
   // effect
   useEffect(() => {
     setId(params!.subjectId);
-  }, [setId]);
+  }, [setId, params]);
 
   return <></>;
 }

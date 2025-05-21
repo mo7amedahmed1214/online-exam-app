@@ -3,7 +3,7 @@ import { useMutation } from "@tanstack/react-query";
 
 import toast from "react-hot-toast";
 import { signUp } from "../_actions/register.action";
-import { Pages, Routes } from "@/lib/constants/emuns.constant";
+import { Pages, Routes } from "@/lib/constants/app.constant";
 import { useRouter } from "next/navigation";
 
 export default function useRegister() {
@@ -22,8 +22,6 @@ export default function useRegister() {
         if ("code" in response) {
           throw new Error(response.message);
         }
-
-        console.log(response);
       } finally {
         toast.dismiss(toastId);
       }

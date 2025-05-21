@@ -1,10 +1,10 @@
 "use client";
-import AddDeploma from "@/components/feature/add-diploma";
-import AddQuize from "@/components/feature/add-quize";
+import AddDeploma from "@/components/feature/diploma/add-diploma";
+import AddQuize from "@/components/feature/quiz/add-quize";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Input } from "@/components/ui/input";
-import { userContext } from "@/context/user.context";
-import { Routes } from "@/lib/constants/emuns.constant";
+import { userContext } from "@/components/providers/user/user.provider";
+import { Routes } from "@/lib/constants/app.constant";
 import { useSession } from "next-auth/react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useContext } from "react";
@@ -50,10 +50,8 @@ export default function NavSearch() {
       <Input
         type="search"
         onChange={(e) => handlParams(e.target.value)}
-        placeholder={
-          pathName === Routes.ROOT || pathName === Routes.ADMIN ? "Search Subject" : "Search Quize"
-        }
-        className="ml-20 lg:ml-0 !rounded-20 shadow-inputShadow form-control h-full"
+        placeholder={pathName === Routes.ROOT || pathName === Routes.ADMIN ? "Search Subject" : "Search Quize"}
+        className="ml-20 lg:ml-0 !rounded-20 shadow-input-shadow form-control h-full"
       />
 
       {/*add diploma if admin  */}

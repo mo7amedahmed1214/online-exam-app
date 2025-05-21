@@ -2,17 +2,10 @@
 import React, { useState } from "react";
 
 import { Button } from "@/components/ui/button";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { AnswerFields, QuizeSchema } from "@/lib/schemes/quize.schema";
+import { AnswerFields, QuizeSchema } from "@/lib/schemes/quiz.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import useQuistion from "../../../_hooks/use-quistion";
 import QuizeResult from "./quize-result";
@@ -46,9 +39,7 @@ export default function FormQuistion({ quistions }: FormQuistionProps) {
   // function
   const onSubmit: SubmitHandler<AnswerFields> = (values) => {
     // filter quistion that answer form all quistion to send them to api
-    const filteredAnswers = values.answers.filter(
-      (ans) => ans.correct !== "" && ans.questionId !== ""
-    );
+    const filteredAnswers = values.answers.filter((ans) => ans.correct !== "" && ans.questionId !== "");
 
     submitQuize({ answers: filteredAnswers });
   };
@@ -62,11 +53,7 @@ export default function FormQuistion({ quistions }: FormQuistionProps) {
     <section className="w-full  rounded-20 space-y-8">
       {/* header */}
       <header className="font-medium text-2xl">
-        <QuizeTitle
-          quistions={quistions}
-          step={step}
-          onTimerEnd={() => onSubmit(form.getValues())}
-        />
+        <QuizeTitle quistions={quistions} step={step} onTimerEnd={() => onSubmit(form.getValues())} />
       </header>
 
       {/*form Qustion  */}
@@ -79,9 +66,7 @@ export default function FormQuistion({ quistions }: FormQuistionProps) {
             render={({ field }) => (
               <FormItem className="space-y-6 w-full">
                 {/* label */}
-                <FormLabel className="text-2xl text-black font-medium">
-                  {currentQuistion.question}
-                </FormLabel>
+                <FormLabel className="text-2xl text-black font-medium">{currentQuistion.question}</FormLabel>
 
                 {/* field */}
                 <FormControl>
@@ -97,22 +82,18 @@ export default function FormQuistion({ quistions }: FormQuistionProps) {
                         correct: value,
                         questionId: currentQuistion._id,
                       });
-                    }}
-                  >
+                    }}>
                     {currentQuistion.answers.map((answer) => (
                       <FormItem
                         key={answer.key}
-                        className={`flex items-center space-x-2 rounded-10 w-full ${answer.key === form.watch(`answers.${step}.correct`) ? "bg-trueColor" : "bg-qusColor"}   h-70  px-5`}
-                      >
+                        className={`flex items-center space-x-2 rounded-10 w-full ${answer.key === form.watch(`answers.${step}.correct`) ? "bg-trueColor" : "bg-qusColor"}   h-70  px-5`}>
                         {/* field */}
                         <FormControl>
                           <RadioGroupItem className="mt-2" value={answer.key} />
                         </FormControl>
 
                         {/* lable */}
-                        <FormLabel className="grow py-4 text-xl font-[400] ">
-                          {answer.answer}
-                        </FormLabel>
+                        <FormLabel className="grow py-4 text-xl font-[400] ">{answer.answer}</FormLabel>
                       </FormItem>
                     ))}
                   </RadioGroup>
@@ -143,8 +124,7 @@ export default function FormQuistion({ quistions }: FormQuistionProps) {
 
                 setStep((prev) => prev - 1);
               }}
-              disabled={step === 0 || isPending}
-            >
+              disabled={step === 0 || isPending}>
               Back
             </Button>
 
@@ -177,8 +157,7 @@ export default function FormQuistion({ quistions }: FormQuistionProps) {
                 if (currenAnswer?.correct) return false;
 
                 return true;
-              })()}
-            >
+              })()}>
               Next
             </Button>
           </footer>
